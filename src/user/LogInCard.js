@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import { CardHeader, Grid } from "@mui/material";
+import { CardHeader } from "@mui/material";
 import LogInForm from "./LogInForm";
 import dao from "../fetch/user/dao";
 import { useFormik } from "formik";
+import { Context } from "../Context";
 
 export default function LogInCard() {
-  const [initialLogInValues, setInitialLogInValues] = useState({
+  const { loginUser } = useContext(Context);
+  const [loginCredentials, setLoginCredentials] = useState({
     username: "",
     password: "",
   });
@@ -18,11 +20,11 @@ export default function LogInCard() {
       password: values.password,
     };
     let result = await dao.postLogin(user);
-    return result;
+    loginUser(result.jwt);
   };
 
   const formik = useFormik({
-    initialValues: initialLogInValues,
+    initialValues: loginCredentials,
     //validate
     onSubmit: (values) => {
       logInUser(values);

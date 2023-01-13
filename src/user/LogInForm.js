@@ -70,13 +70,7 @@ export default function LogInForm(props) {
               marginBottom: "10px",
             }}
           >
-            <Button
-              variant="contained"
-              type="onSubmit"
-              onClick={() => {
-                console.log("values?", formik.values);
-              }}
-            >
+            <Button variant="contained" type="onSubmit">
               Log in
             </Button>
           </CardActions>

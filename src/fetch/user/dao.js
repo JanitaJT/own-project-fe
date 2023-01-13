@@ -9,6 +9,7 @@ const postLogin = async (user) => {
       body: JSON.stringify(user),
     });
     const response = await fetch(request);
+    console.log("response", response);
     if (response.status === 400) {
       return 400;
     }
@@ -18,7 +19,8 @@ const postLogin = async (user) => {
     const data = await response.json();
     return data;
   } catch (error) {
-    return "error";
+    // console.log("error", error);
+    return "error" + error;
   }
 };
 

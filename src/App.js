@@ -1,10 +1,11 @@
-import LogInScreen from "./screens/LogInScreen";
+import { ContextProvider } from "./Context";
+import Navigation from "./Navigation";
 
 function App() {
   return (
-    <div>
-      <LogInScreen />
-    </div>
+    <ContextProvider>
+      <Navigation />
+    </ContextProvider>
   );
 }
 

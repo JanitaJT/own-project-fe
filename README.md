@@ -14,3 +14,5 @@
 - [React](https://reactjs.org/)
 - [Formik](https://formik.org/)
 - [MUI](https://mui.com/)
+- [JSON Web Token](https://www.npmjs.com/package/jsonwebtoken)
+- [React Router DOM](https://www.npmjs.com/package/react-router-dom)
