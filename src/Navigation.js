@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import LogInScreen from "./screens/LogInScreen";
+import LoginScreen from "./screens/LoginScreen";
 import HomeScreen from "./screens/HomeScreen";
 import { Context } from "./Context";
 
@@ -15,7 +15,7 @@ export default function Navigation() {
           </Routes>
         ) : (
           <Routes>
-            <Route exact path="/" element={<LogInScreen />} />
+            <Route exact path="/" element={<LoginScreen />} />
           </Routes>
         )}
       </Router>

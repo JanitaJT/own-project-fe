@@ -1,9 +1,9 @@
 import React from "react";
 import { Grid } from "@mui/material";
 import { Box } from "@mui/system";
-import LogInCard from "../user/LogInCard";
+import LoginCard from "../user/LoginCard";
 
-export default function LogInScreen() {
+export default function LoginScreen() {
   return (
     <div>
       <Box>
@@ -17,7 +17,7 @@ export default function LogInScreen() {
           padding={2}
           marginTop="30px"
         >
-          <LogInCard />
+          <LoginCard />
         </Grid>
       </Box>
     </div>

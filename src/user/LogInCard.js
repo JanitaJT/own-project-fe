@@ -2,16 +2,16 @@ import React, { useContext, useState } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import { CardHeader } from "@mui/material";
-import LogInForm from "./LogInForm";
+import LoginForm from "./LoginForm";
 import dao from "../fetch/user/dao";
 import { useFormik } from "formik";
 import { Context } from "../Context";
 
-export default function LogInCard() {
+export default function LoginCard() {
   const { loginUser } = useContext(Context);
   const [loginCredentials, setLoginCredentials] = useState({
-    username: "",
-    password: "",
+    username: "mary.varga",
+    password: "Xx66yy88cc",
   });
 
   const logInUser = async (values) => {
@@ -36,7 +36,7 @@ export default function LogInCard() {
       <Card variant="outlined">
         <CardHeader title="Log in" sx={{ textAlign: "center" }}></CardHeader>
         <CardContent>
-          <LogInForm formik={formik} />
+          <LoginForm formik={formik} />
         </CardContent>
       </Card>
     </div>

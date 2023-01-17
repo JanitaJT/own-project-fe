@@ -8,7 +8,7 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import IconButton from "@mui/material/IconButton";
 import CardActions from "@mui/material/CardActions";
 
-export default function LogInForm(props) {
+export default function LoginForm(props) {
   const { formik } = props;
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);

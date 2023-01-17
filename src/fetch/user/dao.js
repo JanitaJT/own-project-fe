@@ -9,7 +9,7 @@ const postLogin = async (user) => {
       body: JSON.stringify(user),
     });
     const response = await fetch(request);
-    console.log("response", response);
+    // console.log("response", response);
     if (response.status === 400) {
       return 400;
     }
