@@ -6,9 +6,18 @@ import LoginForm from "./LoginForm";
 import dao from "../fetch/user/dao";
 import { useFormik } from "formik";
 import { Context } from "../Context";
+import { validate } from "../validation/user/Login";
+import AlertMessage from "../common/AlertMessage";
 
 export default function LoginCard() {
   const { loginUser } = useContext(Context);
+
+  const [alertOpen, setAlertOpen] = useState(false);
+  const [alertOptions, setAlertOptions] = useState({
+    title: "",
+    message: "",
+    severity: "error",
+  });
   const [loginCredentials, setLoginCredentials] = useState({
     username: "mary.varga",
     password: "Xx66yy88cc",
@@ -20,12 +29,23 @@ export default function LoginCard() {
       password: values.password,
     };
     let result = await dao.postLogin(user);
-    loginUser(result.jwt);
+    if (result === 400) {
+      setAlertOptions({
+        severity: "error",
+        title: "Login failed",
+        message: "Check that username and password are correct.",
+      });
+      setAlertOpen(true);
+      return;
+    } else {
+      loginUser(result.jwt);
+    }
   };
 
   const formik = useFormik({
+    enableReinitialize: true,
     initialValues: loginCredentials,
-    //validate
+    validate,
     onSubmit: (values) => {
       logInUser(values);
       return;
@@ -33,6 +53,11 @@ export default function LoginCard() {
   });
   return (
     <div>
+      <AlertMessage
+        alertOpen={alertOpen}
+        alertOptions={alertOptions}
+        setAlertOpen={setAlertOpen}
+      />
       <Card variant="outlined">
         <CardHeader title="Log in" sx={{ textAlign: "center" }}></CardHeader>
         <CardContent>

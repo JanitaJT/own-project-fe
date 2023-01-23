@@ -34,6 +34,8 @@ export const ContextProvider = ({ children }) => {
   }
 
   return (
-    <Context.Provider value={{ auth, loginUser }}>{children}</Context.Provider>
+    <Context.Provider value={{ auth, loginUser, logoutUser }}>
+      {children}
+    </Context.Provider>
   );
 };

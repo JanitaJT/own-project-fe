@@ -29,6 +29,7 @@ export default function LoginForm(props) {
               onChange={formik.handleChange("username")}
               value={formik.values.username}
               onBlur={formik.handleBlur("username")}
+              error={formik.touched.username && formik.errors.username}
             ></OutlinedInput>
             <FormHelperText>
               {formik.touched.username && formik.errors.username}
@@ -58,6 +59,7 @@ export default function LoginForm(props) {
               onChange={formik.handleChange("password")}
               value={formik.values.password}
               onBlur={formik.handleBlur("password")}
+              error={formik.touched.password && formik.errors.password}
             />
             <FormHelperText>
               {formik.touched.password && formik.errors.password}
