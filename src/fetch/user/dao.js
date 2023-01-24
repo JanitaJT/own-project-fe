@@ -1,6 +1,6 @@
 const postLogin = async (user) => {
   try {
-    const request = new Request("http://localhost:3001/api/logIn/login", {
+    const request = new Request("http://localhost:3001/api/login/login", {
       method: "POST",
       headers: {
         Accept: "application/json",
