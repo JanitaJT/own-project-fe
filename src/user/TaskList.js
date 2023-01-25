@@ -27,7 +27,7 @@ export default function TaskList(props) {
                     alignItems: "flex-start",
                   }}
                 >
-                  <Grid item md={12} xs={7} padding={0.2}>
+                  <Grid item md={12} xs={6} padding={0.2}>
                     <Typography
                       variant="subtitle1"
                       style={{ fontWeight: "bold" }}
@@ -58,11 +58,17 @@ export default function TaskList(props) {
                       )}
                       primaryTypographyProps={{
                         variant: "body2",
+                        style: {
+                          whiteSpace: "nowrap",
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
+                          maxWidth: "90px",
+                        },
                       }}
                     ></ListItemText>
                   </Grid>
 
-                  <Grid item md={12} xs={7} padding={0.2}>
+                  <Grid item md={12} xs={8} padding={0.2}>
                     <Typography
                       variant="subtitle1"
                       style={{ fontWeight: "bold" }}
@@ -109,6 +115,12 @@ export default function TaskList(props) {
                       primary={format(new Date(value.dl), "HH:mm dd.MM.yy")}
                       primaryTypographyProps={{
                         variant: "body2",
+                        style: {
+                          whiteSpace: "nowrap",
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
+                          maxWidth: "90px",
+                        },
                       }}
                     ></ListItemText>
                   </Grid>
