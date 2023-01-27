@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Context } from "../Context";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Button from "@mui/material/Button";
 import { Box } from "@mui/system";
 import { AppBar, Toolbar, Typography } from "@mui/material";
@@ -13,7 +13,11 @@ export default function NavBar() {
       <Box>
         <AppBar position="static" sx={{ backgroundColor: "#626262" }}>
           <Toolbar>
-            <Typography variant="body1" sx={{ padding: "10px" }}>
+            <Typography
+              variant="body1"
+              sx={{ padding: "10px" }}
+              component={"span"}
+            >
               <NavLink
                 to="/"
                 style={{ textDecoration: "none", color: "#FFFFFF" }}
@@ -21,7 +25,11 @@ export default function NavBar() {
                 HOME
               </NavLink>
             </Typography>
-            <Typography variant="body1" sx={{ padding: "10px" }}>
+            <Typography
+              variant="body1"
+              sx={{ padding: "10px" }}
+              component={"span"}
+            >
               <NavLink
                 to="/task"
                 style={{ textDecoration: "none", color: "#FFFFFF" }}
@@ -29,10 +37,12 @@ export default function NavBar() {
                 TASKS
               </NavLink>
             </Typography>
-            <Typography variant="h6" sx={{ padding: "10px" }}>
+            <Typography
+              variant="h6"
+              sx={{ padding: "10px" }}
+              component={"span"}
+            >
               <Button
-                // variant="outlined"
-
                 style={{
                   color: "#FFFFFF",
                 }}

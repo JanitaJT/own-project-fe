@@ -6,7 +6,7 @@ import LoginForm from "./LoginForm";
 import dao from "../fetch/user/dao";
 import { useFormik } from "formik";
 import { Context } from "../Context";
-import { validate } from "../validation/user/Login";
+import { validate } from "../validation/Login";
 import AlertMessage from "../common/AlertMessage";
 
 export default function LoginCard() {

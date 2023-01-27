@@ -1,5 +1,4 @@
 import {
-  Button,
   Card,
   CardActions,
   CardContent,
@@ -10,6 +9,7 @@ import React, { useContext, useEffect, useState } from "react";
 import TaskList from "./TaskList";
 import dao from "../fetch/user/dao";
 import { Context } from "../Context";
+import AddTaskContainer from "./AddTaskContainer";
 
 export default function TaskCard() {
   const { auth } = useContext(Context);
@@ -38,7 +38,7 @@ export default function TaskCard() {
             <CardActions
               sx={{ justifyContent: "center", alignItems: "center" }}
             >
-              <Button>Add task</Button>
+              <AddTaskContainer userTasks={userTasks} />
             </CardActions>
             <CardContent>
               <Grid

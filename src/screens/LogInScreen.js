@@ -1,7 +1,7 @@
 import React from "react";
 import { Grid } from "@mui/material";
 import { Box } from "@mui/system";
-import LoginCard from "../user/LoginCard";
+import LoginCard from "../components/LoginCard";
 
 export default function LoginScreen() {
   return (

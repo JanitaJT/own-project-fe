@@ -27,7 +27,7 @@ export default function TaskList(props) {
                     alignItems: "flex-start",
                   }}
                 >
-                  <Grid item md={12} xs={6} padding={0.2}>
+                  <Grid item md={12} xs={5} padding={0.2}>
                     <Typography
                       variant="subtitle1"
                       style={{ fontWeight: "bold" }}
@@ -38,6 +38,12 @@ export default function TaskList(props) {
                       primary={value.name}
                       primaryTypographyProps={{
                         variant: "body2",
+                        style: {
+                          whiteSpace: "nowrap",
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
+                          maxWidth: "70px",
+                        },
                       }}
                     ></ListItemText>
                   </Grid>
@@ -52,17 +58,13 @@ export default function TaskList(props) {
                       Assigned
                     </Typography>
                     <ListItemText
-                      primary={format(
-                        new Date(value.assigned),
-                        "HH:mm dd.MM.yy"
-                      )}
+                      primary={format(new Date(value.assigned), "HH:mm dd.MM")}
                       primaryTypographyProps={{
                         variant: "body2",
                         style: {
                           whiteSpace: "nowrap",
                           overflow: "hidden",
                           textOverflow: "ellipsis",
-                          maxWidth: "90px",
                         },
                       }}
                     ></ListItemText>
@@ -97,7 +99,13 @@ export default function TaskList(props) {
                       Completed
                     </Typography>
                     <ListItemText
-                      primary={value.completed}
+                      primary={
+                        value.completed === 1
+                          ? "Yes"
+                          : value.completed === 0
+                          ? "No"
+                          : null
+                      }
                       primaryTypographyProps={{
                         variant: "body2",
                       }}
@@ -112,14 +120,13 @@ export default function TaskList(props) {
                       Deadline
                     </Typography>
                     <ListItemText
-                      primary={format(new Date(value.dl), "HH:mm dd.MM.yy")}
+                      primary={format(new Date(value.dl), "HH:mm dd.MM")}
                       primaryTypographyProps={{
                         variant: "body2",
                         style: {
                           whiteSpace: "nowrap",
                           overflow: "hidden",
                           textOverflow: "ellipsis",
-                          maxWidth: "90px",
                         },
                       }}
                     ></ListItemText>
