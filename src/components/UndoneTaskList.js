@@ -20,6 +20,7 @@ export default function UndoneTaskList(props) {
     openDialog,
     setOpenDialog,
     sethoverColor,
+    paginateTasks,
   } = props;
 
   return (
@@ -31,7 +32,7 @@ export default function UndoneTaskList(props) {
       />
       <Box>
         <nav>
-          {taskList.map((value) => {
+          {paginateTasks.map((value) => {
             if (value.completed === 0) {
               return (
                 <List key={value.id}>
@@ -40,6 +41,7 @@ export default function UndoneTaskList(props) {
                     sx={{
                       justifyContent: "flex-start",
                       alignItems: "flex-start",
+                      padding: "10px",
                     }}
                   >
                     <ListItemButton
@@ -50,7 +52,7 @@ export default function UndoneTaskList(props) {
                       onMouseEnter={() => sethoverColor("#CFD6D5  ")}
                       onMouseLeave={() => sethoverColor("#FFFFFF ")}
                     >
-                      <Grid item md={12} xs={12} padding={3}>
+                      <Grid item md={12} xs={12} padding={1}>
                         <Typography
                           variant="subtitle1"
                           style={{ fontWeight: "bold" }}
@@ -71,7 +73,7 @@ export default function UndoneTaskList(props) {
                         ></ListItemText>
                       </Grid>
 
-                      <Grid item md={12} xs={12} padding={3}>
+                      <Grid item md={12} xs={12} padding={1}>
                         <Typography
                           variant="subtitle1"
                           style={{
@@ -95,7 +97,7 @@ export default function UndoneTaskList(props) {
                           }}
                         ></ListItemText>
                       </Grid>
-                      <Grid item md={12} xs={12} padding={3}>
+                      <Grid item md={12} xs={12} padding={1}>
                         <Typography
                           variant="subtitle1"
                           style={{ fontWeight: "bold" }}

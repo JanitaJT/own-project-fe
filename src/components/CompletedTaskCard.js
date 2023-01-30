@@ -5,8 +5,9 @@ import {
   CardHeader,
   Grid,
 } from "@mui/material";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import CompletedTaskList from "./CompletedTaskList";
+import TaskPagination from "./TaskPagination";
 
 export default function CompletedTaskCard(props) {
   const {
@@ -17,6 +18,15 @@ export default function CompletedTaskCard(props) {
     setOpenDialog,
     sethoverColor,
   } = props;
+  let pageSize = 5;
+  const [paginateTasks, setPaginateTasks] = useState([]);
+  const [pagination, setPagination] = useState({
+    from: 0,
+    to: pageSize,
+  });
+  useEffect(() => {
+    setPaginateTasks(taskList.slice(0, 5));
+  }, [taskList]);
 
   return (
     <div>
@@ -45,10 +55,19 @@ export default function CompletedTaskCard(props) {
                   openDialog={openDialog}
                   setOpenDialog={setOpenDialog}
                   sethoverColor={sethoverColor}
+                  paginateTasks={paginateTasks}
                 />
               </Grid>
             </Grid>
           </CardContent>
+          <CardActions sx={{ justifyContent: "center", alignItems: "center" }}>
+            <TaskPagination
+              pagination={pagination}
+              setPagination={setPagination}
+              taskList={taskList}
+              setPaginateTasks={setPaginateTasks}
+            />
+          </CardActions>
         </Card>
       </Grid>
     </div>

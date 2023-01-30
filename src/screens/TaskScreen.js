@@ -9,6 +9,7 @@ import { Container } from "@mui/system";
 
 export default function TaskScreen() {
   const { auth } = useContext(Context);
+
   const [taskList, setTaskList] = useState([]);
   const [singleTask, setSingleTask] = useState({
     assigned: Date.parse(new Date()),
@@ -28,6 +29,7 @@ export default function TaskScreen() {
   useEffect(() => {
     userTasks(auth.jwt);
   }, []);
+
   return (
     <div>
       <NavBar />
